@@ -1,0 +1,179 @@
+/* ─── ProjectCard.css ────────────────────────────────────────────── */
+
+.project-card-wrapper {
+  cursor: pointer;
+}
+
+.browser-mockup {
+  background-color: rgba(5, 5, 8, 0.8); /* bg-bg-secondary/80 */
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  display: flex;
+  align-items: center;
+  gap: 0.375rem; /* gap-1.5 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* border-white/5 */
+}
+
+.browser-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+}
+
+.browser-dot-red { background-color: rgba(239, 68, 68, 0.4); }
+.browser-dot-yellow { background-color: rgba(234, 179, 8, 0.4); }
+.browser-dot-green { background-color: rgba(34, 197, 94, 0.4); }
+
+.browser-address {
+  margin-left: 0.5rem;
+  font-size: 8px;
+  font-family: var(--font-mono, 'Courier New', monospace);
+  color: rgba(168, 178, 196, 0.4); /* text-silver/40 */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-image-container {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background-color: var(--color-bg-card);
+}
+
+.project-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.2);
+  transition: transform 0.7s var(--ease-luxury), filter 0.7s var(--ease-luxury);
+}
+
+.project-card-wrapper:hover .project-card-img {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+.project-card-placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(200, 168, 76, 0.2), rgba(123, 94, 167, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem; /* text-4xl */
+  font-family: var(--font-serif);
+  color: rgba(255, 255, 255, 0.05);
+  font-style: italic;
+}
+
+.project-card-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transform: translateX(-100%);
+  transition: transform 1s var(--ease-luxury);
+}
+
+.project-card-wrapper:hover .project-card-shimmer {
+  transform: translateX(100%);
+}
+
+.project-card-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(5, 5, 8, 0.6); /* bg-bg-primary/60 */
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: opacity 0.3s var(--ease-luxury);
+}
+
+.project-card-wrapper:hover .project-card-overlay {
+  opacity: 1;
+}
+
+.project-card-overlay-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-gold-mid);
+  font-family: var(--font-mono, 'Courier New', monospace);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transform: translateY(1rem);
+  transition: transform 0.5s var(--ease-luxury);
+}
+
+.project-card-wrapper:hover .project-card-overlay-text {
+  transform: translateY(0);
+}
+
+.project-card-content {
+  padding: 1.5rem; /* p-6 */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+.project-card-category {
+  font-size: 10px;
+  font-family: var(--font-mono, 'Courier New', monospace);
+  letter-spacing: 0.1em;
+  color: var(--color-gold-mid);
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.project-card-status {
+  font-size: 10px;
+  font-family: var(--font-mono, 'Courier New', monospace);
+  color: rgba(168, 178, 196, 0.4);
+  padding: 0.125rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
+}
+
+.project-card-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-family: var(--font-serif);
+  color: var(--color-white-soft);
+  transition: color 0.3s var(--ease-luxury);
+}
+
+.project-card-wrapper:hover .project-card-title {
+  color: var(--color-gold-light);
+}
+
+.project-card-description {
+  color: var(--color-silver);
+  font-size: 0.75rem; /* text-xs */
+  line-height: inherit;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.project-tech-chip {
+  font-size: 9px;
+  font-family: var(--font-mono, 'Courier New', monospace);
+  color: rgba(232, 200, 122, 0.6); /* gold-light/60 */
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+}

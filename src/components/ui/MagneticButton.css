@@ -1,0 +1,6 @@
+/* ─── MagneticButton.css ────────────────────────────────────────── */
+
+.magnetic-button-wrapper {
+  position: relative;
+  display: inline-block;
+}

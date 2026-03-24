@@ -1,0 +1,72 @@
+/* ─── ScrollProgress.css ──────────────────────────────────────────
+   Advanced scroll indicator — dual layer + shimmer + glow pulse
+   z-index: 10000 — above all sections, below modals
+   ─────────────────────────────────────────────────────────────── */
+
+/* ── Base bar ── */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2.5px;
+  transform-origin: left;
+  z-index: 10000;
+  pointer-events: none;
+
+  /* Rich triple gradient */
+  background: linear-gradient(
+    90deg,
+    #8A6520    0%,
+    #C9A84C   35%,
+    #E8C87A   60%,
+    #C9A84C   80%,
+    #8A6520  100%
+  );
+
+  /* Glow */
+  box-shadow:
+    0 0 6px  rgba(201,168,76,0.70),
+    0 0 14px rgba(201,168,76,0.35),
+    0 1px 0  rgba(201,168,76,0.20);
+}
+
+/* ── Shimmer sweep layer ── */
+.scroll-progress-bar::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.55) 45%,
+    rgba(255,255,255,0.80) 50%,
+    rgba(255,255,255,0.55) 55%,
+    transparent 100%
+  );
+  animation: sp-shimmer 2.2s ease-in-out infinite;
+}
+
+@keyframes sp-shimmer {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(220%);  }
+}
+
+/* ── Glow dot at the leading edge ── */
+.scroll-progress-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #E8C87A;
+  box-shadow:
+    0 0 8px  rgba(232,200,122,0.90),
+    0 0 18px rgba(201,168,76,0.65),
+    0 0 32px rgba(201,168,76,0.35);
+  z-index: 10001;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-50%);
+  animation: sp-dot-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes sp-dot-pulse {
+  0%,100%{ box-shadow: 0 0 8px rgba(232,200,122,0.90), 0 0 18px rgba(201,168,76,0.65); }
+  50%    { box-shadow: 0 0 14px rgba(232,200,122,1.0),  0 0 30px rgba(201,168,76,0.90); }
+}

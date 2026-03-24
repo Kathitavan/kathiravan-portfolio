@@ -1,0 +1,119 @@
+/* ─── FloatingContact.css ────────────────────────────────────────── */
+
+.floating-contact-wrapper {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Menu items container ───────────────────────────────────────── */
+.floating-menu {
+  position: absolute;
+  bottom: calc(100% + 0.75rem);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+}
+
+/* ── Individual menu item ───────────────────────────────────────── */
+.floating-menu-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  background: rgba(10, 10, 18, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  text-decoration: none;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease,
+              box-shadow 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.floating-menu-item:hover {
+  transform: translateX(-3px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(201, 168, 76, 0.1);
+}
+
+/* ── Label tooltip (shown on hover via AnimatePresence) ─────────── */
+.floating-menu-label {
+  position: absolute;
+  right: calc(100% + 0.6rem);
+  white-space: nowrap;
+  padding: 0.25rem 0.6rem;
+  border-radius: 5px;
+  /* Explicit styles — not relying on .glass-card */
+  background: rgba(10, 10, 18, 0.94);
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* Explicit text */
+  font-size: 9px;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #C9A84C;
+  pointer-events: none;
+}
+
+/* ── Main FAB ───────────────────────────────────────────────────── */
+.floating-main-btn {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  background: var(--color-gold-mid, #C9A84C);
+  color: var(--color-bg-primary, #050508);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 0 rgba(201, 168, 76, 0.4),
+    0 8px 24px rgba(201, 168, 76, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease;
+  z-index: 10;
+  animation: fab-pulse 3.5s ease-in-out infinite;
+}
+
+@keyframes fab-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.35), 0 8px 24px rgba(201,168,76,0.25); }
+  50%       { box-shadow: 0 0 0 8px rgba(201,168,76,0), 0 8px 24px rgba(201,168,76,0.35); }
+}
+
+.floating-main-btn:focus-visible {
+  outline: 2px solid rgba(201, 168, 76, 0.6);
+  outline-offset: 3px;
+}
+
+/* ── Icon wrapper ───────────────────────────────────────────────── */
+.floating-btn-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-bg-primary, #050508);
+  /* Explicit color so icon is always visible */
+  color: #050508;
+}
+
+/* ── Glow ring (visible when open) ─────────────────────────────── */
+.floating-btn-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(201, 168, 76, 0.35);
+  pointer-events: none;
+}

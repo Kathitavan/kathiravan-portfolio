@@ -1,0 +1,27 @@
+/* ─── CustomCursor.css ─────────────────────────────────────────── */
+
+#cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Default size — JS expands to 420px over interactive elements */
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998; /* below modals (100000) but above everything else */
+  background: radial-gradient(
+    circle,
+    rgba(201, 168, 76, 0.09) 0%,
+    rgba(201, 168, 76, 0.04) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  will-change: transform, opacity, width, height;
+  transition:
+    opacity 0.4s ease,
+    width 0.4s ease,
+    height 0.4s ease;
+  /* Prevent glow from blocking text selection */
+  user-select: none;
+}

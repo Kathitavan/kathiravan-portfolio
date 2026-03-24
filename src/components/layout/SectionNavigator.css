@@ -1,0 +1,261 @@
+/* ─── SectionNavigator.css ────────────────────────────────────────
+   TWO COMPONENTS:
+   .sn-root   → Section navigator  RIGHT side  (z:500)
+   .soc-root  → Social media bar   LEFT side   (z:500)
+   Both visible only at ≥ 1280px
+   ─────────────────────────────────────────────────────────────── */
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION NAVIGATOR — RIGHT SIDE (enhanced)
+   ══════════════════════════════════════════════════════════════ */
+
+.sn-root {
+  position: fixed;
+  right: 1.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 500;
+  display: none;
+  align-items: flex-end;
+}
+@media (min-width: 1280px) { .sn-root { display: flex; } }
+
+/* ── Track ── */
+.sn-track {
+  position: absolute;
+  right: 5px;
+  top: 0; bottom: 0;
+  width: 1.5px;
+  background: rgba(201,168,76,0.10);
+  border-radius: 2px;
+}
+
+/* Animated gold fill */
+.sn-track-fill {
+  position: absolute;
+  top: 0; left: 0; width: 100%;
+  background: linear-gradient(to bottom,
+    rgba(201,168,76,0.15),
+    #C9A84C 60%,
+    #E8C87A
+  );
+  box-shadow: 0 0 8px rgba(201,168,76,0.50), 0 0 2px rgba(232,200,122,0.80);
+  border-radius: 2px;
+}
+
+/* ── Nodes ── */
+.sn-nodes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.85rem;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+}
+
+.sn-node-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+
+/* ── Tooltip card ── */
+.sn-tooltip {
+  position: absolute;
+  right: calc(100% + 16px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(6,5,10,0.96);
+  border: 1px solid rgba(201,168,76,0.28);
+  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.60),
+    0 0 16px rgba(201,168,76,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  white-space: nowrap;
+  pointer-events: none;
+}
+/* Gold top strip on tooltip */
+.sn-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 12px; right: 12px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.45), transparent);
+}
+/* Arrow right */
+.sn-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -5px; top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 8px; height: 8px;
+  background: rgba(6,5,10,0.96);
+  border-top: 1px solid rgba(201,168,76,0.28);
+  border-right: 1px solid rgba(201,168,76,0.28);
+}
+.sn-tooltip-roman {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 11px; font-weight: 700; font-style: italic;
+  color: rgba(201,168,76,0.55);
+  min-width: 20px; line-height: 1;
+}
+.sn-tooltip-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; text-transform: uppercase; letter-spacing: 0.24em;
+  color: #E8C87A; font-weight: 700;
+}
+
+/* ── Node wrap ── */
+.sn-node-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+}
+.sn-node-pulse {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(201,168,76,0.60);
+  pointer-events: none;
+}
+
+/* Active node outer glow ring (static, behind pulse) */
+.sn-node-glow {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.20) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Roman numeral */
+.sn-roman {
+  position: absolute;
+  right: calc(100% + 8px);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 9px; font-weight: 700; font-style: italic;
+  color: rgba(201,168,76,0.70);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.05em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOCIAL MEDIA BAR — LEFT SIDE
+   ══════════════════════════════════════════════════════════════ */
+
+.soc-root {
+  position: fixed;
+  left: 1.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 500;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+@media (min-width: 1280px) { .soc-root { display: flex; } }
+
+/* Decorative line top */
+.soc-line-top {
+  width: 1.5px;
+  height: 56px;
+  background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.30));
+  border-radius: 2px;
+  margin-bottom: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Decorative line bottom */
+.soc-line-bot {
+  width: 1.5px;
+  height: 56px;
+  background: linear-gradient(to top, transparent, rgba(201,168,76,0.30));
+  border-radius: 2px;
+  margin-top: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Icons container */
+.soc-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* Each icon link */
+.soc-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  border: 1px solid rgba(201,168,76,0.12);
+  background: rgba(5,5,10,0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(168,178,196,0.45);
+  text-decoration: none;
+  transition:
+    color 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+  flex-shrink: 0;
+}
+
+/* Each icon has a unique hover color via data-color */
+.soc-link:hover {
+  color: var(--soc-color, #E8C87A);
+  border-color: var(--soc-color, rgba(201,168,76,0.50));
+  background: rgba(5,5,10,0.80);
+  transform: translateX(3px);
+  box-shadow: 0 0 14px var(--soc-glow, rgba(201,168,76,0.20));
+}
+
+/* Tooltip — appears to the RIGHT (into page) */
+.soc-tip {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  padding: 5px 10px;
+  background: rgba(6,5,10,0.96);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.20em;
+  color: #C9A84C;
+  pointer-events: none;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.50);
+}
+/* Left-pointing arrow */
+.soc-tip::before {
+  content: '';
+  position: absolute;
+  left: -4px; top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 7px; height: 7px;
+  background: rgba(6,5,10,0.96);
+  border-bottom: 1px solid rgba(201,168,76,0.25);
+  border-left: 1px solid rgba(201,168,76,0.25);
+}

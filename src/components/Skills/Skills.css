@@ -1,0 +1,234 @@
+/* ─── Skills.css ────────────────────────────────────────────────
+   RULES:
+   • section has NO z-index (prevents stacking context / whileInView bug)
+   • No z-index higher than 2 inside section content
+   ─────────────────────────────────────────────────────────────── */
+
+/* ══ Section ══════════════════════════════════════════════════ */
+.sk-section {
+  position: relative;
+  padding: 6rem 0;
+  background: #050508;
+  overflow: hidden;
+  /* NO z-index — keeps natural stacking, whileInView works */
+}
+@media (min-width: 768px) { .sk-section { padding: 8rem 0; } }
+
+/* Grid bg */
+.sk-grid-bg {
+  position: absolute; inset: 0; pointer-events: none;
+}
+
+/* Ambient glows */
+.sk-glow-a {
+  position: absolute; top: 5%; left: -12%;
+  width: 480px; height: 480px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.sk-glow-b {
+  position: absolute; bottom: 5%; right: -10%;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(123,94,167,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Content wrapper */
+.sk-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 80rem; margin: 0 auto; padding: 0 1.5rem;
+}
+@media (min-width: 768px) { .sk-wrap { padding: 0 3rem; } }
+
+/* Row label */
+.sk-row-label {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 2.25rem;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 9px; text-transform: uppercase;
+  letter-spacing: 0.32em; color: rgba(201,168,76,0.45);
+  white-space: nowrap;
+}
+.sk-row-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,0.16), transparent);
+}
+
+/* Divider between two halves */
+.sk-divider {
+  height: 1px; margin: 3.5rem 0;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,0.14), transparent);
+  transform-origin: left;
+}
+
+/* ══ Arc gauge grid ═══════════════════════════════════════════ */
+.arc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 480px) { .arc-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 768px) { .arc-grid { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; } }
+@media (min-width: 1024px){ .arc-grid { grid-template-columns: repeat(6, 1fr); } }
+
+/* Single arc card */
+.arc-card {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1.25rem 0.75rem 1rem;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  background: rgba(15,15,26,0.55);
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.28s ease, transform 0.28s ease;
+}
+.arc-card:hover {
+  border-color: rgba(201,168,76,0.24);
+  transform: translateY(-5px);
+}
+
+/* SVG container */
+.arc-svg-wrap {
+  position: relative; width: 88px; height: 88px;
+}
+.arc-svg { width: 100%; height: 100%; }
+
+/* Center icon + number */
+.arc-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2px;
+}
+.arc-initial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem; font-weight: 700; line-height: 1;
+}
+.arc-pct {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem; font-weight: 700; line-height: 1;
+}
+.arc-pct sup { font-size: 0.55rem; opacity: 0.75; }
+
+/* Skill name */
+.arc-label {
+  margin-top: 0.55rem;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 8.5px; text-transform: uppercase;
+  letter-spacing: 0.15em; color: rgba(168,178,196,0.60);
+  text-align: center; line-height: 1.3;
+}
+
+/* Hover glow bg */
+.arc-hover-glow {
+  position: absolute; inset: 0; border-radius: 14px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.arc-card:hover .arc-hover-glow { opacity: 1; }
+
+/* ══ Category cards ═══════════════════════════════════════════ */
+.cat-grid {
+  display: grid; grid-template-columns: 1fr; gap: 1rem;
+}
+@media (min-width: 640px)  { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .cat-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+
+/* Card */
+.cat-card {
+  position: relative;
+  padding: 1.25rem;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  background: rgba(15,15,26,0.60);
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.28s ease, transform 0.28s ease;
+}
+.cat-card:hover {
+  border-color: rgba(201,168,76,0.22);
+  transform: translateY(-3px);
+}
+
+.cat-card-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 0% 0%, rgba(201,168,76,0.07) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.cat-card:hover .cat-card-glow { opacity: 1; }
+
+/* Card header */
+.cat-header {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding-bottom: 0.8rem; margin-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.cat-icon { font-size: 1.1rem; flex-shrink: 0; }
+.cat-name {
+  flex: 1;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 9.5px; text-transform: uppercase;
+  letter-spacing: 0.22em; color: rgba(201,168,76,0.72);
+}
+.cat-count {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.95rem; font-weight: 700;
+  color: rgba(201,168,76,0.32);
+}
+
+/* Chips inside card */
+.cat-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ── Skill chip with icon ── */
+.sk-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.025);
+  cursor: default;
+  transition: border-color 0.2s ease, background 0.2s ease,
+              color 0.2s ease, transform 0.18s ease;
+}
+.sk-chip:hover {
+  border-color: rgba(201,168,76,0.35);
+  background: rgba(201,168,76,0.07);
+  transform: translateY(-2px);
+}
+
+/* Dot fallback when no icon */
+.sk-chip-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(201,168,76,0.7); flex-shrink: 0;
+}
+
+.sk-chip-label {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 9.5px; text-transform: uppercase;
+  letter-spacing: 0.13em; color: rgba(168,178,196,0.68);
+  transition: color 0.2s ease;
+}
+.sk-chip:hover .sk-chip-label { color: #E8C87A; }
+
+/* ── SkillBar (kept for compatibility) ── */
+.skill-bar-container { margin-bottom: 1.75rem; }
+.skill-bar-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 0.65rem;
+}
+.skill-bar-track {
+  height: 6px; width: 100%;
+  background: rgba(255,255,255,0.05);
+  border-radius: 9999px; overflow: hidden; position: relative;
+}
+.skill-bar-fill { height: 100%; position: relative; }
+.skill-bar-shimmer {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: sk-shimmer 2s linear infinite;
+}
+@keyframes sk-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

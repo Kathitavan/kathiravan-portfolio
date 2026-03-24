@@ -1,0 +1,150 @@
+/* ─── PageLoader.css ────────────────────────────────────────────── */
+
+.page-loader-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-primary, #050508);
+  overflow: hidden;
+}
+
+/* Dot grid background */
+.page-loader-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(201, 168, 76, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Ambient glow blob */
+.page-loader-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  animation: loader-glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes loader-glow-pulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1);   }
+  50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* ── Inner layout ───────────────────────────────────────────────── */
+.page-loader-inner {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  min-width: 280px;
+}
+
+/* ── Monogram ───────────────────────────────────────────────────── */
+.page-loader-monogram {
+  display: block;
+  font-size: 6rem;
+  font-family: var(--font-serif, Georgia, serif);
+  font-weight: 700;
+  color: var(--color-gold-mid, #C9A84C);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 60px rgba(201, 168, 76, 0.3);
+}
+
+@media (min-width: 768px) {
+  .page-loader-monogram { font-size: 9rem; }
+}
+
+/* ── Drawing line ───────────────────────────────────────────────── */
+.page-loader-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-gold-mid, #C9A84C), transparent);
+  margin-bottom: 1.5rem;
+  /* width is animated from JS */
+}
+
+/* ── Name ───────────────────────────────────────────────────────── */
+.page-loader-name-wrap {
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.page-loader-name {
+  font-size: 1.35rem;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  letter-spacing: 0.55em;
+  color: var(--color-white-soft, #E8E8F0);
+  text-transform: uppercase;
+  margin: 0;
+  padding-right: 0.55em; /* compensate letter-spacing on last char */
+}
+
+@media (min-width: 768px) {
+  .page-loader-name { font-size: 1.65rem; }
+}
+
+/* ── Tagline ────────────────────────────────────────────────────── */
+.page-loader-tagline {
+  font-size: 9px;
+  font-family: var(--font-mono, 'Courier New', monospace);
+  letter-spacing: 0.28em;
+  color: rgba(168, 178, 196, 0.4);
+  text-transform: uppercase;
+  margin: 0 0 2rem;
+}
+
+/* ── Progress bar ───────────────────────────────────────────────── */
+.page-loader-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.page-loader-progress-track {
+  flex: 1;
+  height: 1px;
+  background: rgba(201, 168, 76, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.page-loader-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-gold-dark, #8A6520), var(--color-gold-mid, #C9A84C), var(--color-gold-light, #E8C87A));
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.5);
+  /* width is animated via inline style */
+}
+
+.page-loader-progress-num {
+  font-size: 9px;
+  font-family: var(--font-mono, 'Courier New', monospace);
+  color: rgba(201, 168, 76, 0.5);
+  letter-spacing: 0.1em;
+  min-width: 28px;
+  text-align: right;
+}
+
+/* ── Corner accents ─────────────────────────────────────────────── */
+.page-loader-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: rgba(201, 168, 76, 0.3);
+}

@@ -1,0 +1,27 @@
+/* ─── SkillBar.css ─────────────────────────────────────────────── */
+
+.skill-bar-container { margin-bottom: 1.75rem; }
+
+.skill-bar-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 0.65rem;
+}
+
+.skill-bar-track {
+  height: 6px; width: 100%;
+  background: rgba(255,255,255,0.05);
+  border-radius: 9999px; overflow: hidden; position: relative;
+}
+
+.skill-bar-fill { height: 100%; position: relative; }
+
+.skill-bar-shimmer {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shimmer-sweep 2s linear infinite;
+}
+
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%);  }
+}

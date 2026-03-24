@@ -1,0 +1,280 @@
+/* ─── Timeline.css ───────────────────────────────────────────────
+   NO z-index on .tl-section
+   ─────────────────────────────────────────────────────────────── */
+
+/* ══ Section ══════════════════════════════════════════════════ */
+.tl-section {
+  position: relative;
+  padding: 5rem 0 4.5rem;
+  background: #0A0A12;
+  overflow: hidden;
+}
+
+.tl-glow-a {
+  position: absolute; top: -5%; right: -8%;
+  width: 460px; height: 460px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.tl-glow-b {
+  position: absolute; bottom: -5%; left: -8%;
+  width: 380px; height: 380px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(123,94,167,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.tl-watermark {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(5rem, 18vw, 15rem);
+  font-weight: 700; font-style: italic;
+  color: rgba(255,255,255,0.015);
+  pointer-events: none; user-select: none; white-space: nowrap;
+}
+
+/* Content wrapper */
+.tl-wrap {
+  position: relative; z-index: 1;
+  max-width: 80rem; margin: 0 auto; padding: 0 1.5rem;
+}
+@media (min-width: 768px) { .tl-wrap { padding: 0 3rem; } }
+
+/* ══ Flow path ════════════════════════════════════════════════ */
+.tl-flow-wrap {
+  display: none;
+  margin: 0 0 1.5rem;
+  height: 40px;
+}
+@media (min-width: 768px) { .tl-flow-wrap { display: block; } }
+
+.tl-flow-svg {
+  width: 100%; height: 100%;
+  overflow: visible;
+}
+
+/* ══ Cards layout ═════════════════════════════════════════════ */
+.tl-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+@media (min-width: 768px) {
+  .tl-cards {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+/* ══ Single card ══════════════════════════════════════════════ */
+.tl-card {
+  position: relative;
+  flex: 1;
+  padding: 1.1rem 1rem 0.9rem 1.2rem;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 13px;
+  background: rgba(12,12,22,0.70);
+  cursor: pointer;
+  overflow: hidden;
+  display: flex; flex-direction: column; gap: 0.42rem;
+  transition: border-color 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
+  /* transform handled by Framer whileHover */
+}
+.tl-card:hover {
+  border-color: rgba(201,168,76,0.22);
+  background: rgba(14,13,6,0.88);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+}
+.tl-card--active {
+  border-color: rgba(201,168,76,0.32) !important;
+  background: rgba(16,14,5,0.95) !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.55) !important;
+}
+
+/* Left accent bar — color from --cc var */
+.tl-accent {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  border-top-left-radius: 13px; border-bottom-left-radius: 13px;
+  opacity: 0.55; transition: opacity 0.28s ease;
+}
+.tl-card:hover .tl-accent, .tl-card--active .tl-accent { opacity: 1; }
+
+/* ── Header row ── */
+.tl-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+.tl-head-right {
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.tl-icon {
+  width: 38px; height: 38px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: transform 0.28s ease;
+}
+.tl-card:hover .tl-icon { transform: scale(1.08); }
+
+.tl-era {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px; text-transform: uppercase;
+  letter-spacing: 0.18em; color: rgba(168,178,196,0.38);
+}
+
+/* Live badge */
+.tl-live {
+  display: flex; align-items: center; gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; text-transform: uppercase; letter-spacing: 0.16em;
+  color: rgba(74,222,128,0.75);
+  background: rgba(74,222,128,0.08);
+  border: 1px solid rgba(74,222,128,0.18);
+  border-radius: 9999px; padding: 2px 7px;
+}
+.tl-live-dot {
+  width: 5px; height: 5px; border-radius: 50%; background: #4ade80;
+  animation: tl-blink 2s ease-in-out infinite;
+}
+@keyframes tl-blink {
+  0%,100%{ opacity:1; box-shadow:0 0 4px rgba(74,222,128,0.8); }
+  50%    { opacity:.28; box-shadow:none; }
+}
+
+/* ── Phase / title / sub ── */
+.tl-phase {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px; text-transform: uppercase;
+  letter-spacing: 0.20em; font-weight: 600; margin-top: 0.15rem;
+}
+.tl-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem; font-weight: 700; color: #EEF0F5; line-height: 1.2;
+}
+.tl-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px; color: rgba(168,178,196,0.42); line-height: 1.4;
+}
+
+/* Tag pill */
+.tl-tag {
+  display: inline-block; width: fit-content;
+  padding: 2px 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.14em;
+  border: 1px solid; border-radius: 4px; margin-top: 0.1rem;
+}
+
+/* Summary — always visible one-liner */
+.tl-summary {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  font-size: 11.5px; line-height: 1.55;
+  color: rgba(168,178,196,0.62); margin: 0.1rem 0 0;
+}
+
+/* ══ Course block — always visible ════════════════════════════ */
+.tl-course {
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  background: rgba(255,255,255,0.025);
+  display: flex; flex-direction: column; gap: 0.45rem;
+  margin-top: 0.15rem;
+}
+
+.tl-course-row {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.tl-course-dur {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em;
+}
+.tl-course-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; color: rgba(168,178,196,0.55);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+
+/* Focus chips row */
+.tl-focus-chips {
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.tl-focus-chip {
+  padding: 2px 7px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.12em;
+  border: 1px solid; border-radius: 4px;
+  background: rgba(255,255,255,0.02);
+}
+
+/* ── Expand hint ── */
+.tl-expand-hint {
+  display: flex; align-items: center; gap: 5px;
+  margin-top: 0.35rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.16em;
+  cursor: pointer;
+}
+
+/* ══ Expandable detail ════════════════════════════════════════ */
+.tl-detail {
+  overflow: hidden;
+  padding-top: 0.65rem;
+  margin-top: 0.3rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.tl-points {
+  display: flex; flex-direction: column; gap: 5px;
+  list-style: none; padding: 0; margin: 0;
+}
+.tl-point {
+  display: flex; align-items: flex-start; gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: rgba(168,178,196,0.72); line-height: 1.5;
+}
+
+.tl-extra {
+  display: flex; align-items: flex-start; gap: 6px;
+  margin-top: 0.55rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px; color: rgba(201,168,76,0.58);
+  line-height: 1.5; font-style: italic;
+  background: rgba(201,168,76,0.05);
+  border-radius: 6px; padding: 0.45rem 0.6rem;
+}
+
+.tl-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 0.65rem;
+  padding: 0.4rem 0.9rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.16em;
+  color: #61DAFB;
+  border: 1px solid rgba(97,218,251,0.25);
+  border-radius: 6px;
+  background: rgba(97,218,251,0.06);
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.tl-link:hover {
+  background: rgba(97,218,251,0.12);
+  border-color: rgba(97,218,251,0.5);
+}
+
+/* ══ Selected label bar ════════════════════════════════════════ */
+.tl-sel-bar {
+  display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 8px;
+  background: rgba(201,168,76,0.04);
+  width: fit-content; margin-left: auto; margin-right: auto;
+}
+.tl-sel-bar span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.18em;
+  color: rgba(168,178,196,0.55);
+}
+.tl-sel-bar span:first-child { font-weight: 700; }
+.tl-sel-divider { color: rgba(168,178,196,0.22) !important; }

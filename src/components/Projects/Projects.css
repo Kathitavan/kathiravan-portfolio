@@ -1,0 +1,186 @@
+/* ─── Projects.css ────────────────────────────────────────────────── */
+
+.projects-section {
+  position: relative;
+  padding-top: 6rem; /* py-24 */
+  padding-bottom: 6rem;
+  background-color: var(--color-bg-secondary);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .projects-section {
+    padding-top: 8rem; /* py-32 */
+    padding-bottom: 8rem;
+  }
+}
+
+.projects-bg-decor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.projects-glow-1 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 600px;
+  height: 600px;
+  background-color: rgba(123, 94, 167, 0.05); /* accent-glow/5 */
+  filter: blur(120px);
+  border-radius: 9999px;
+  transform: translate(25%, 50%);
+}
+
+.projects-empty-hint {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  text-align: center;
+  color: var(--color-silver);
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ADDITIONS ONLY — original code above is unchanged
+   1. Category bg color layers (animated via JS)
+   2. Glass peek overlay at bottom of grid
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Animated bg layers — positioned absolute, pointer-events none ── */
+.projects-cat-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background 0.65s ease;
+}
+.projects-cat-glow-a {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background 0.65s ease;
+}
+.projects-cat-glow-b {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background 0.65s ease;
+}
+
+/* ── Grid wrapper — needed so glass peek can position absolute ── */
+.projects-grid-wrap {
+  position: relative;
+}
+
+/* Clip grid height when collapsed */
+.projects-grid-wrap--peek .projects-grid-inner {
+  max-height: 560px;
+  overflow: hidden;
+}
+@media (min-width: 768px)  { .projects-grid-wrap--peek .projects-grid-inner { max-height: 540px; } }
+@media (min-width: 1024px) { .projects-grid-wrap--peek .projects-grid-inner { max-height: 520px; } }
+
+/* ── Glass peek overlay ── */
+.projects-glass-peek {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 1.75rem;
+  pointer-events: none;
+}
+
+/* Multi-layer frosted fade */
+.projects-glass-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(10, 10, 18, 0.42) 28%,
+    rgba(10, 10, 18, 0.72) 52%,
+    rgba(10, 10, 18, 0.93) 76%,
+    rgba(10, 10, 18, 0.99) 100%
+  );
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+/* Glass pill button */
+.projects-peek-btn {
+  position: relative;
+  z-index: 2;
+  pointer-events: all;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 28px;
+  border: 1px solid;
+  border-radius: 9999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.20em;
+  cursor: pointer;
+  background: rgba(8, 7, 14, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.55);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+.projects-peek-btn:hover {
+  background: rgba(14, 12, 8, 0.80);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.65);
+  transform: translateY(-2px);
+}
+.projects-peek-count {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Collapse row */
+.projects-collapse-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+.projects-collapse-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+}
+.projects-collapse-btn {
+  padding: 6px 18px;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 9999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(168,178,196,0.45);
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.22s, border-color 0.22s;
+}
+.projects-collapse-btn:hover {
+  color: rgba(201,168,76,0.70);
+  border-color: rgba(201,168,76,0.25);
+}

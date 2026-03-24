@@ -1,0 +1,223 @@
+/* ─── CommandPalette.css ──────────────────────────────────────────
+   Advanced command palette — grouped sections, vivid active state
+   Strong readable text throughout
+   z-index: 10002 (above everything)
+   ─────────────────────────────────────────────────────────────── */
+
+.cp-overlay {
+  position: fixed; inset: 0; z-index: 10002;
+  display: flex;
+  align-items: flex-start; justify-content: center;
+  padding: 12vh 1rem 2rem;
+}
+
+.cp-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(3,3,8,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── Panel ── */
+.cp-panel {
+  position: relative;
+  width: 100%; max-width: 36rem;
+  background: rgba(10,10,18,0.99);
+  border: 1px solid rgba(201,168,76,0.22);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04),
+    0 32px 72px rgba(0,0,0,0.72),
+    0 0 0 0 rgba(201,168,76,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Top gold strip */
+.cp-panel::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #C9A84C 40%, #E8C87A 60%, transparent 100%);
+  opacity: 0.65;
+}
+
+/* ── Search header ── */
+.cp-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(201,168,76,0.025);
+  position: relative;
+}
+
+/* Animated border-bottom when typing */
+.cp-header::after {
+  content: '';
+  position: absolute; bottom: -1px; left: 0;
+  height: 1px; width: var(--cp-fill, 0%);
+  background: linear-gradient(90deg, rgba(201,168,76,0.50), rgba(201,168,76,0.12));
+  transition: width 0.3s ease;
+}
+
+.cp-search-icon {
+  color: #C9A84C; flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(201,168,76,0.50));
+}
+
+.cp-input {
+  flex: 1; background: transparent; border: none; outline: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px; color: #EEF0F5;
+  caret-color: #C9A84C; letter-spacing: 0.02em;
+}
+.cp-input::placeholder { color: rgba(168,178,196,0.45); }
+
+.cp-counter {
+  padding: 2px 8px;
+  background: rgba(201,168,76,0.10);
+  border: 1px solid rgba(201,168,76,0.22);
+  border-radius: 9999px;
+  font-size: 8.5px; font-family: 'JetBrains Mono', monospace;
+  color: rgba(201,168,76,0.80); font-weight: 600;
+  flex-shrink: 0;
+}
+
+.cp-esc {
+  padding: 3px 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 5px;
+  font-size: 8px; font-family: 'JetBrains Mono', monospace;
+  color: rgba(168,178,196,0.65);  /* readable */
+  cursor: pointer; flex-shrink: 0;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+.cp-esc:hover { color: #C9A84C; border-color: rgba(201,168,76,0.35); background: rgba(201,168,76,0.06); }
+
+/* ── List ── */
+.cp-list {
+  max-height: 360px; overflow-y: auto; padding: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,168,76,0.20) transparent;
+}
+.cp-list::-webkit-scrollbar { width: 3px; }
+.cp-list::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.20); border-radius: 2px; }
+
+/* ── Category group label ── */
+.cp-group-label {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px 4px;
+  font-size: 7.5px; font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase; letter-spacing: 0.28em;
+  color: rgba(201,168,76,0.65);  /* readable gold label */
+  font-weight: 600;
+}
+.cp-group-label::after {
+  content: ''; flex: 1; height: 1px;
+  background: rgba(201,168,76,0.12);
+}
+
+/* ── Command item ── */
+.cp-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px;
+  border-radius: 8px; text-decoration: none;
+  transition: background 0.14s ease;
+  cursor: pointer; border: 1px solid transparent;
+  margin-bottom: 1px;
+}
+.cp-item:hover { background: rgba(201,168,76,0.07); }
+.cp-item--active {
+  background: rgba(201,168,76,0.12);
+  border-color: rgba(201,168,76,0.25);
+}
+
+/* Icon box */
+.cp-item-icon-box {
+  width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: background 0.2s, border-color 0.2s;
+}
+.cp-item--active .cp-item-icon-box,
+.cp-item:hover   .cp-item-icon-box {
+  background: rgba(201,168,76,0.10);
+  border-color: rgba(201,168,76,0.25);
+}
+
+/* Text */
+.cp-item-info { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
+.cp-item-name {
+  font-size: 13.5px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: rgba(238,240,245,0.90);  /* strong white */
+  font-weight: 600; line-height: 1.2;
+  transition: color 0.15s;
+}
+.cp-item--active .cp-item-name,
+.cp-item:hover   .cp-item-name { color: #E8C87A; }
+
+.cp-item-hint {
+  font-size: 9px; font-family: 'JetBrains Mono', monospace;
+  color: rgba(168,178,196,0.55);  /* readable hint */
+  letter-spacing: 0.06em;
+}
+
+/* Right side — ext badge + arrow */
+.cp-item-right { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+.cp-item-ext {
+  font-size: 8px; font-family: 'JetBrains Mono', monospace;
+  padding: 2px 6px; border-radius: 4px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(168,178,196,0.60);  /* readable */
+  text-transform: uppercase; letter-spacing: 0.12em;
+}
+.cp-item-arrow {
+  color: rgba(201,168,76,0.0);
+  transform: translateX(-6px);
+  transition: color 0.18s, transform 0.18s;
+}
+.cp-item--active .cp-item-arrow,
+.cp-item:hover   .cp-item-arrow { color: rgba(201,168,76,0.85); transform: translateX(0); }
+
+/* ── Empty state ── */
+.cp-empty {
+  padding: 2.5rem 1rem; text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em;
+  color: rgba(168,178,196,0.45);  /* readable */
+}
+.cp-empty strong { color: rgba(201,168,76,0.65); }
+
+/* ── Footer ── */
+.cp-footer {
+  display: flex; align-items: center; gap: 1.25rem;
+  padding: 8px 14px;
+  background: rgba(5,5,10,0.60);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.cp-help { display: flex; align-items: center; gap: 5px; }
+.cp-key {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 2px 6px; min-width: 22px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  font-size: 8px; font-family: 'JetBrains Mono', monospace;
+  color: rgba(201,168,76,0.75);  /* readable gold */
+}
+.cp-help-txt {
+  font-size: 8px; font-family: 'JetBrains Mono', monospace;
+  color: rgba(168,178,196,0.50);  /* bumped from 0.2 */
+  text-transform: uppercase; letter-spacing: 0.12em;
+}
+.cp-footer-brand {
+  margin-left: auto;
+  font-size: 7.5px; font-family: 'JetBrains Mono', monospace;
+  color: rgba(201,168,76,0.40);
+  letter-spacing: 0.18em; text-transform: uppercase;
+}

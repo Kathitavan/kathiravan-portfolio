@@ -1,0 +1,19 @@
+/* ─── GlassCard.css ─────────────────────────────────────────────── */
+
+.glass-card {
+  background: rgba(15, 15, 26, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(200, 168, 76, 0.15);
+  border-radius: 12px;
+}
+
+.glass-card-hover {
+  transition: border-color 0.4s var(--ease-luxury), box-shadow 0.4s var(--ease-luxury), transform 0.4s var(--ease-luxury);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(200, 168, 76, 0.4);
+  box-shadow: 0 0 30px rgba(200, 168, 76, 0.08), 0 20px 60px rgba(0,0,0,0.5);
+  transform: translateY(-4px);
+}
