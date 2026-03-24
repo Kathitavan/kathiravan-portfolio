@@ -1,16 +1,76 @@
-# React + Vite
+# Kathiravan Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio where I showcase my work, skills, and projects as a Full Stack Developer.
 
-Currently, two official plugins are available:
+I built this to represent not just what I’ve learned, but how I think, design, and build real-world applications.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## About Me
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+I’m Kathiravan, a Full Stack Developer focused on building modern web applications using the MERN stack.
 
-## Expanding the ESLint configuration
+I’m currently pursuing B.Tech in Information Technology and continuously improving my skills through hands-on projects and real-world problem solving.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## What this portfolio includes
+
+* A modern UI with smooth animations
+* My real-world projects and implementations
+* Skills and technologies I work with
+* Certifications and learning journey
+* Contact section for collaboration
+
+---
+
+## Special Feature
+
+This portfolio includes **KathirX**, a smart assistant built without any external API.
+
+It can:
+
+* Answer questions about me
+* Guide users to different sections
+* Provide details about my projects and skills
+
+---
+
+## Tech Used
+
+* React
+* JavaScript
+* CSS
+* Framer Motion
+* Vite
+
+---
+
+## Running the Project
+
+```bash
+git clone https://github.com/Kathitavan/kathiravan-portfolio.git
+cd kathiravan-portfolio
+npm install
+npm run dev
+```
+
+---
+
+## Contact
+
+If you want to connect or work with me:
+
+* Email: [kathiravan15x@email.com](mailto:kathiravan@email.com)
+* GitHub: https://github.com/Kathitavan
+* LinkedIn: https://www.linkedin.com/in/kathiravan-kumar/
+
+---
+
+## Note
+
+This project is continuously improving as I learn and build more.
+
+---
+
+Thanks for visiting my portfolio.
