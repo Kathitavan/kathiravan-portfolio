@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMagnifyingGlass, HiArrowRight } from 'react-icons/hi2';
+import { CONTACT_DATA } from '../../data/data';
 import './CommandPalette.css';
 
 /* ─── Commands with category + emoji icon ──────────────────────── */
@@ -14,10 +15,10 @@ const COMMANDS = [
   { name:'Certificates', hint:'10+ credentials',      href:'#certificates',          cat:'Navigate', icon:'◆', external:false },
   { name:'Contact',      hint:'Get in touch',         href:'#contact',               cat:'Navigate', icon:'◇', external:false },
   /* Actions */
-  { name:'Resume',       hint:'Download PDF',         href:'/assets/Kathiravan_Resume.pdf',            cat:'Action',   icon:'↓', external:false },
+  { name:'Resume',       hint:'Download PDF',         href: CONTACT_DATA.resume,            cat:'Action',   icon:'↓', external:false },
   /* Links */
-  { name:'GitHub',       hint:'Source code',          href:'https://github.com',     cat:'Connect',  icon:'G', external:true  },
-  { name:'LinkedIn',     hint:'Professional profile', href:'https://linkedin.com',   cat:'Connect',  icon:'in',external:true  },
+  { name:'GitHub',       hint:'Source code',          href: CONTACT_DATA.github,     cat:'Connect',  icon:'G', external:true  },
+  { name:'LinkedIn',     hint:'Professional profile', href: CONTACT_DATA.linkedin,   cat:'Connect',  icon:'in',external:true  },
   { name:'NxtWave',      hint:'Verified certificates',href:'https://learning.ccbp.in/progress/public?uid=aec82096-1024-4dc8-911d-26f9f0d147b1', cat:'Connect', icon:'N', external:true },
 ];
 

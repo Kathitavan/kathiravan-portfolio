@@ -10,6 +10,7 @@ import {
   SiGit, SiDocker, SiPostgresql, SiHtml5,
   SiFigma, SiRedux, SiVite, SiTypescript,
 } from 'react-icons/si';
+import { CONTACT_DATA } from '../../data/data';
 import './Hero.css';
 
 /* ── Cursor ─────────────────────────────────────────────────────── */
@@ -495,7 +496,7 @@ const Hero=()=>{
               className="flex flex-wrap gap-4"
             >
               <GoldButton variant="filled" icon={HiArrowRight} href="#projects">View Projects</GoldButton>
-              <GoldButton variant="outline" href="/assets/Kathiravan_Resume.pdf">Download Resume</GoldButton>
+              <GoldButton variant="outline" href={CONTACT_DATA.resume}>Download Resume</GoldButton>
               <GoldButton variant="ghost" href="#contact">Hire Me</GoldButton>
             </motion.div>
           </div>

@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiEnvelope, HiXMark, HiChatBubbleLeftRight } from 'react-icons/hi2';
 import { FaWhatsapp, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { CONTACT_DATA } from '../../data/data';
 import './FloatingContact.css';
 
 const MENU_ITEMS = [
   {
     Icon:    FaGithub,
     label:   'GitHub',
-    href:    'https://github.com',
+    href:    CONTACT_DATA.github,
     external: true,
     color:   '#C9A84C',
     bg:      'rgba(201,168,76,0.1)',
@@ -17,7 +18,7 @@ const MENU_ITEMS = [
   {
     Icon:    FaLinkedinIn,
     label:   'LinkedIn',
-    href:    'https://linkedin.com',
+    href:    CONTACT_DATA.linkedin,
     external: true,
     color:   '#7BB3D0',
     bg:      'rgba(123,179,208,0.08)',
@@ -26,7 +27,7 @@ const MENU_ITEMS = [
   {
     Icon:    FaWhatsapp,
     label:   'WhatsApp',
-    href:    'https://wa.me/yourphone',
+    href:    CONTACT_DATA.whatsapp,
     external: true,
     color:   '#5CB85C',
     bg:      'rgba(92,184,92,0.08)',
@@ -35,7 +36,7 @@ const MENU_ITEMS = [
   {
     Icon:    HiEnvelope,
     label:   'Email',
-    href:    'mailto:kathiravan@email.com',
+    href:    `mailto:${CONTACT_DATA.email}`,
     external: false,
     color:   '#E8C87A',
     bg:      'rgba(232,200,122,0.08)',

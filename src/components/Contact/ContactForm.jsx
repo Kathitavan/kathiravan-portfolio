@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiCheckCircle, HiPaperAirplane } from 'react-icons/hi2';
+import { CONTACT_DATA } from '../../data/data';
 import './Contact.css';
 
 /* ─── ContactForm ───────────────────────────────────────────────────
@@ -42,7 +43,7 @@ const ContactForm = ({ onSuccess } = {}) => {
     await new Promise(r => setTimeout(r, 1400));
     const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`;
     window.open(
-      `mailto:kathiravan15x@gmail.com?subject=${encodeURIComponent(form.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(body)}`,
+      `mailto:${CONTACT_DATA.email}?subject=${encodeURIComponent(form.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(body)}`,
       '_blank'
     );
 

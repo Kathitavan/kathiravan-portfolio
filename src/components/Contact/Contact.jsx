@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { HiArrowUpRight, HiCheckCircle, HiPaperAirplane } from 'react-icons/hi2';
 import { FaGithub, FaLinkedinIn, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import { CONTACT_DATA } from '../../data/data';
 import SectionTitle from '../ui/SectionTitle';
 import './Contact.css';
 
@@ -12,35 +13,35 @@ const SOCIALS = [
     Icon:     FaGithub,
     platform: 'GitHub',
     handle:   'Kathitavan',
-    href:     'https://github.com/Kathitavan',
+    href:     CONTACT_DATA.github,
     color:    '#E8C87A',
   },
   {
     Icon:     FaLinkedinIn,
     platform: 'LinkedIn',
     handle:   'kathiravan-kumar',
-    href:     'https://www.linkedin.com/in/kathiravan-kumar/',
+    href:     CONTACT_DATA.linkedin,
     color:    '#7BB3D0',
   },
   {
     Icon:     FaInstagram,
     platform: 'Instagram',
     handle:   '@k_kathiravan_x',
-    href:     'https://www.instagram.com/k_kathiravan_x?igsh=MWdpdDFtbnpqc211aA==',
+    href:     CONTACT_DATA.instagram,
     color:    '#E1306C',
   },
   {
     Icon:     FaWhatsapp,
     platform: 'WhatsApp',
-    handle:   '+91 6380201679',
-    href:     'https://wa.me/916380201679',
+    handle:   CONTACT_DATA.mobile,
+    href:     CONTACT_DATA.whatsapp,
     color:    '#25D366',
   },
   {
     Icon:     MdEmail,
     platform: 'Email',
-    handle:   'kathiravan15x@gmail.com',
-    href:     'mailto:kathiravan15x@gmail.com',
+    handle:   CONTACT_DATA.email,
+    href:     `mailto:${CONTACT_DATA.email}`,
     color:    '#C9A84C',
   },
 ];
@@ -83,7 +84,7 @@ const ContactForm = () => {
 
     // Fallback: open mailto
     const mailto =
-      `mailto:kathiravan15x@gmail.com` +
+      `mailto:${CONTACT_DATA.email}` +
       `?subject=${encodeURIComponent(form.subject || 'Portfolio Inquiry')}` +
       `&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)}`;
     window.open(mailto, '_blank');

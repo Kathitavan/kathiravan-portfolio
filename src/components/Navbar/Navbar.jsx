@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import GoldButton from '../ui/GoldButton';
+import { CONTACT_DATA } from '../../data/data';
 import './Navbar.css';
 
 const NAV_LINKS = [
@@ -159,9 +160,9 @@ const Navbar = () => {
               <span className="mobile-drawer-footer-label">MERN Stack Dev · 2026</span>
               <div className="mobile-drawer-socials">
                 {[
-                  { label: 'GH', href: 'https://github.com' },
-                  { label: 'LI', href: 'https://linkedin.com' },
-                  { label: 'IG', href: 'https://instagram.com' },
+                  { label: 'GH', href: CONTACT_DATA.github    },
+                  { label: 'LI', href: CONTACT_DATA.linkedin  },
+                  { label: 'IG', href: CONTACT_DATA.instagram },
                 ].map(s => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="mobile-drawer-social-link">
                     {s.label}

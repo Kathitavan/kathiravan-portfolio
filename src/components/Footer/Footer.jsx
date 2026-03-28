@@ -2,14 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import GoldButton from '../ui/GoldButton';
 import { HiArrowRight, HiArrowUp, HiEnvelope } from 'react-icons/hi2';
+import { CONTACT_DATA } from '../../data/data';
 import './Footer.css';
 
 // ── Social links data ─────────────────────────────────────────────
 const SOCIALS = [
-  { label: 'GitHub',    icon: 'GH', href: 'https://github.com'    },
-  { label: 'LinkedIn',  icon: 'LI', href: 'https://linkedin.com'  },
-  { label: 'Instagram', icon: 'IG', href: 'https://instagram.com' },
-  { label: 'Twitter',   icon: 'TW', href: 'https://twitter.com'   },
+  { label: 'GitHub',    icon: 'GH', href: CONTACT_DATA.github    },
+  { label: 'LinkedIn',  icon: 'LI', href: CONTACT_DATA.linkedin  },
+  { label: 'Instagram', icon: 'IG', href: CONTACT_DATA.instagram },
 ];
 
 const NAV_LINKS = [
@@ -63,16 +63,16 @@ const FooterCTA = () => (
           <GoldButton variant="filled" icon={HiArrowRight} href="#contact">
             Start a Conversation
           </GoldButton>
-          <GoldButton variant="outline" href="/assets/Kathiravan_Resume.pdf">
+          <GoldButton variant="outline" href={CONTACT_DATA.resume}>
             Download Resume
           </GoldButton>
         </div>
       </FadeUp>
 
       <FadeUp delay={0.32}>
-        <a href="mailto:kathiravan@email.com" className="footer-cta-email">
+        <a href={`mailto:${CONTACT_DATA.email}`} className="footer-cta-email">
           <span className="footer-cta-email-dot" />
-          kathiravan@email.com
+          {CONTACT_DATA.email}
           <span className="footer-cta-email-dot" />
         </a>
       </FadeUp>

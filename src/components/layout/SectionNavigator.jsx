@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedinIn, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import { CONTACT_DATA } from '../../data/data';
 import './SectionNavigator.css';
 
 /* ─── Section list ────────────────────────────────────────────── */
@@ -20,35 +21,35 @@ const SOCIALS = [
   {
     Icon:  FaGithub,
     label: 'GitHub',
-    href:  'https://github.com/Kathitavan',
+    href:  CONTACT_DATA.github,
     color: '#E8C87A',
     glow:  'rgba(232,200,122,0.22)',
   },
   {
     Icon:  FaLinkedinIn,
     label: 'LinkedIn',
-    href:  'https://www.linkedin.com/in/kathiravan-kumar/',
+    href:  CONTACT_DATA.linkedin,
     color: '#7BB3D0',
     glow:  'rgba(123,179,208,0.22)',
   },
   {
     Icon:  FaInstagram,
     label: 'Instagram',
-    href:  'https://www.instagram.com/k_kathiravan_x',
+    href:  CONTACT_DATA.instagram,
     color: '#E1306C',
     glow:  'rgba(225,48,108,0.22)',
   },
   {
     Icon:  FaWhatsapp,
     label: 'WhatsApp',
-    href:  'https://wa.me/916380201679',
+    href:  CONTACT_DATA.whatsapp,
     color: '#25D366',
     glow:  'rgba(37,211,102,0.22)',
   },
   {
     Icon:  MdEmail,
     label: 'Email',
-    href:  'mailto:kathiravan15x@gmail.com',
+    href:  `mailto:${CONTACT_DATA.email}`,
     color: '#C9A84C',
     glow:  'rgba(201,168,76,0.22)',
   },
