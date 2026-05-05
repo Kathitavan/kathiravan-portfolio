@@ -114,11 +114,12 @@ const ArcGauge = ({ name, percentage, delay }) => {
 };
 
 /* ── Skill chip with brand icon ── */
-const SkillChip = ({ skill, delay }) => {
+const SkillChip = ({ skill, delay, index }) => {
   const brand = getIcon(skill);
   return (
     <motion.div
       className="sk-chip"
+      style={{ '--i': index }}
       initial={{ opacity: 0, scale: 0.88 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay, duration: 0.35 }}
@@ -152,7 +153,7 @@ const CatCard = ({ category, delay }) => (
 
     <div className="cat-chips">
       {category.items.map((skill, i) => (
-        <SkillChip key={skill} skill={skill} delay={delay + i * 0.04} />
+        <SkillChip key={skill} skill={skill} delay={delay + i * 0.04} index={i} />
       ))}
     </div>
   </motion.div>

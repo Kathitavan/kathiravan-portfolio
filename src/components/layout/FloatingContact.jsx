@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiEnvelope, HiXMark, HiChatBubbleLeftRight } from 'react-icons/hi2';
 import { FaWhatsapp, FaGithub, FaLinkedinIn } from 'react-icons/fa';
@@ -47,9 +47,26 @@ const MENU_ITEMS = [
 const FloatingContact = () => {
   const [isOpen,    setIsOpen]    = useState(false);
   const [hovered,   setHovered]   = useState(null);
+  const wrapperRef = useRef(null);
+
+  // Close on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isOpen]);
 
   return (
-    <div className="floating-contact-wrapper">
+    <div className="floating-contact-wrapper" ref={wrapperRef}>
 
       {/* Menu items — appear above the button */}
       <AnimatePresence>

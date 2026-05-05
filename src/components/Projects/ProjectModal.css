@@ -12,7 +12,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: 200;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,6 +166,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   /* Custom scrollbar */
   scrollbar-width: thin;
   scrollbar-color: rgba(201,168,76,0.20) transparent;

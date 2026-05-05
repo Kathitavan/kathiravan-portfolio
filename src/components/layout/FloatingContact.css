@@ -99,6 +99,14 @@
   outline-offset: 3px;
 }
 
+/* Mobile positioning — avoid overlap with KathirX and footer */
+@media (max-width: 768px) {
+  .floating-contact-wrapper {
+    bottom: 90px;
+    right: 1.5rem;
+  }
+}
+
 /* ── Icon wrapper ───────────────────────────────────────────────── */
 .floating-btn-icon-wrap {
   display: flex;

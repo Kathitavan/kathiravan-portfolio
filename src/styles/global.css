@@ -81,6 +81,16 @@
   }
   p { font-family: 'Instrument Sans', system-ui, sans-serif; line-height: 1.7; color: #A8B2C4; }
   a { text-decoration: none; }
+
+  /* Accessibility — focus styles for keyboard navigation */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #C9A84C;
+    outline-offset: 2px;
+  }
 }
 
 ::-webkit-scrollbar       { width: 5px; }

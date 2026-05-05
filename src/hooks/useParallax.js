@@ -18,7 +18,8 @@ export const useParallax = (ref, speed = 0.5, direction = 'vertical') => {
         trigger: element,
         start: "top bottom",
         end: "bottom top",
-        scrub: true
+        scrub: true,
+        invalidateOnRefresh: true
       }
     });
 

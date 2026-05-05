@@ -51,26 +51,26 @@ export const projectsData = [
      ══════════════════════════════════════════════════════════════ */
   {
     id:          "portfolio",
-    title:       "Developer Portfolio v2",
+    title:       "Developer Portfolio v1",
     category:    "Master",
     description:
-      "Current luxury dark-themed portfolio — built with React, Tailwind CSS, Framer Motion and GSAP. Features KathirX AI assistant (Claude API), animated hero, certificate gallery, and command palette.",
-    stack:       ["React", "Tailwind CSS", "Framer Motion", "GSAP", "Vite", "Claude API", "Lenis"],
+      "My first personal portfolio built using pure HTML, CSS, JavaScript, and Bootstrap. Designed to showcase my early projects, skills, and creativity with a clean responsive layout and structured UI.",
+    stack:       ["HTML", "CSS", "JavaScript", "Bootstrap"],
     features:    [
-      "KathirX — AI portfolio assistant powered by Claude Sonnet API",
-      "Animated hero with particle system and orbital MERN tech icons",
-      "Certificate gallery with PDF viewer and category filter tabs",
-      "Glass peek effect and animated section background per filter",
-      "Command palette (Cmd+K) for instant section navigation",
-      "Mobile-first responsive design with Lenis smooth scroll",
+      "Fully responsive layout using Bootstrap grid system",
+      "Multi-section portfolio (About, Skills, Projects, Contact)",
+      "Basic animations and smooth scrolling navigation",
+      "Project showcase with simple UI cards",
+      "Contact section with form structure",
+      "Clean and structured beginner-friendly design",
     ],
-    status:      "Live",
-    image:       "/assets/images/project imgs/portfolio.png",  // add your screenshot here
+    status:      "Completed",
+    image:       "/assets/images/project imgs/portfolio.png",
     liveUrl:     "https://kathir-portfolio-mu.vercel.app/",
     github:      "https://github.com/Kathitavan/kathir",
     hasCrudDemo: false,
-    featured:    true,
-  },
+    featured:    false,
+},
   {
     id:          "e-voting",
     title:       "E-Voting System",
@@ -90,6 +90,28 @@ export const projectsData = [
     image:       "/assets/images/project imgs/e-voting.png",  // add your screenshot here
     liveUrl:     "https://e-voting-alpha-mauve.vercel.app/",
     github:      "https://github.com/Kathitavan/E-Voting/tree/main",
+    hasCrudDemo: false,
+    featured:    true,
+  },
+  {
+    id:          "ai-prompt-library",
+    title:       "AI Prompt Library",
+    category:    "Master",
+    description:
+      "Enterprise-grade prompt management system with real-time analytics, version control, and collaborative curation. Features Redis-cached view tracking, Angular reactive forms, and a clean Django REST architecture—deployed via Docker for seamless scalability.",
+    stack:       ["Angular", "Django", "PostgreSQL", "Redis", "Docker", "Nginx", "REST APIs"],
+    features:    [
+      "Redis-based real-time view tracking and trending algorithms",
+      "Angular reactive form validation with real-time search and filters",
+      "Custom Django REST API (no DRF) with optimized query patterns",
+      "Dockerized full-stack architecture with Nginx reverse proxy",
+      "Clean separation of concerns: frontend, backend, cache, and database",
+      "Advanced prompt versioning and collaborative tagging system",
+    ],
+    status:      "Completed",
+    image:       "/assets/images/project imgs/prompt_valut.png",             // Initials placeholder will display
+    liveUrl:     null,             // Private deployment
+    github:      "https://github.com/Kathitavan/prompt-vault.git",
     hasCrudDemo: false,
     featured:    true,
   },
@@ -282,7 +304,7 @@ export const projectsData = [
     ],
     status:      "Live",
     image:       "/assets/images/project imgs/nxtwave-feature.png",  // add your screenshot here
-    liveUrl:     "https://fetaure.ccbp.tech",
+    liveUrl:     "https://feature.ccbp.tech",
     github:      null,    // NxtWave CCBP platform projects — source code not public
     hasCrudDemo: false,
     featured:    false,
@@ -327,6 +349,29 @@ export const projectsData = [
     hasCrudDemo: false,
     featured:    false,
   },
+
+  {
+  id:          "thumblify",
+  title:       "Thumblify — AI Thumbnail Generator",
+  category:    "Master",
+  description:
+    "A full-stack AI-powered thumbnail generation platform for content creators. Uses Groq LLM for prompt optimisation and Pollinations.ai for image generation, with two creation modes — Generate and Recreate — backed by JWT auth and a credit system.",
+  stack:       ["React 18", "Vite", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Groq API", "JWT"],
+  features:    [
+    "Groq-optimised prompt layer for stronger image-generation results",
+    "Generate mode (fresh thumbnail) and Recreate mode (targeted edits)",
+    "JWT authentication with credit-based usage tracking",
+    "Persistent thumbnail library with personal and community feeds",
+    "Public community feed with likes and trending idea prompts",
+    "Client-side image download with preview retry for recreate flow",
+  ],
+  status:      "Live",
+  image:       "/assets/images/project imgs/thumblify.png",
+  liveUrl:     null,       
+  github:      "https://github.com/Kathitavan/thumblify.git",       // add your GitHub repo URL here
+  hasCrudDemo: true,
+  featured:    true,
+},
 
 ];
 
