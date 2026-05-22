@@ -43,7 +43,7 @@ const About = () => (
 
             <div className="about-image-container">
               <img
-                src="/assets/images/profile.jpg"
+                src="/assets/images/profile.png"
                 alt="Kathiravan"
                 className="about-image-img"
                 onError={e => { e.target.style.display = 'none'; }}

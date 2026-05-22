@@ -140,7 +140,7 @@ const Lightbox = ({open,onClose}) => (
     {open&&(
       <motion.div className="lb-overlay" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} onClick={onClose}>
         <motion.div className="lb-box" initial={{scale:.85,opacity:0}} animate={{scale:1,opacity:1}} exit={{scale:.85,opacity:0}} transition={{duration:.32,ease:[.16,1,.3,1]}} onClick={e=>e.stopPropagation()}>
-          <img src="/assets/images/profile.jpg" alt="Kathiravan" className="lb-img"/>
+          <img src="/assets/images/profile.png" alt="Kathiravan" className="lb-img"/>
           <button className="lb-close" onClick={onClose}><HiXMark/></button>
         </motion.div>
       </motion.div>
@@ -269,7 +269,7 @@ const CommandCenter = () => {
               <div className="cc-scan" style={{top:`${scanPct}%`}}/>
               {!imgErr?(
                 <img
-                  src="/assets/images/profile.jpg"
+                  src="/assets/images/profile.png"
                   alt="Kathiravan"
                   className="cc-photo"
                   onError={()=>setImgErr(true)}
