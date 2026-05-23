@@ -1,0 +1,25 @@
+# Robots.txt for Kathiravan's Portfolio
+# https://kathiravan.org
+
+User-agent: *
+Allow: /
+Allow: /public/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/
+
+# Crawl delay (optional - remove if you want faster crawling)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://kathiravan.org/sitemap.xml
+
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
