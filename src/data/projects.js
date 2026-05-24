@@ -35,7 +35,7 @@
        "Feature three",
      ],
      status:      "Completed",      // Live | Completed | In Progress
-     image:       null,             // or "/assets/projects/screenshot.png"
+     image:       null,             // or "/assets/projects/screenshot.webp"
      liveUrl:     "https://yourapp.vercel.app",
      github:      "https://github.com/Kathitavan/repo-name",
      hasCrudDemo: false,
@@ -65,7 +65,7 @@ export const projectsData = [
       "Clean and structured beginner-friendly design",
     ],
     status:      "Completed",
-    image:       "/assets/images/project imgs/portfolio.png",
+    image:       "/assets/images/project imgs/portfolio.webp",
     liveUrl:     "https://kathir-portfolio-mu.vercel.app/",
     github:      "https://github.com/Kathitavan/kathir",
     hasCrudDemo: false,
@@ -87,7 +87,7 @@ export const projectsData = [
       "Responsive UI works across desktop and mobile devices",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/e-voting.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/e-voting.webp",  // add your screenshot here
     liveUrl:     "https://e-voting-alpha-mauve.vercel.app/",
     github:      "https://github.com/Kathitavan/E-Voting/tree/main",
     hasCrudDemo: false,
@@ -109,7 +109,7 @@ export const projectsData = [
       "Advanced prompt versioning and collaborative tagging system",
     ],
     status:      "Completed",
-    image:       "/assets/images/project imgs/prompt_valut.png",             // Initials placeholder will display
+    image:       "/assets/images/project imgs/prompt_valut.webp",             // Initials placeholder will display
     liveUrl:     null,             // Private deployment
     github:      "https://github.com/Kathitavan/prompt-vault.git",
     hasCrudDemo: false,
@@ -135,7 +135,7 @@ export const projectsData = [
       "Clean semantic HTML structure and fast load performance",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/tourism.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/tourism.webp",  // add your screenshot here
     liveUrl:     "https://tourism-sage-iota.vercel.app",
     github:      "https://github.com/Kathitavan/tourism",
     hasCrudDemo: false,
@@ -156,7 +156,7 @@ export const projectsData = [
       "CRUD operations demonstrated in live interactive demo",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/howto.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/howto.webp",  // add your screenshot here
     liveUrl:     "https://docportal.vercel.app",
     github:      "https://github.com/Kathitavan/How-To",
     hasCrudDemo: true,
@@ -182,7 +182,7 @@ export const projectsData = [
       "Responsive dashboard layout with clean card UI",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/kathircash.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/kathircash.webp",  // add your screenshot here
     liveUrl:     "https://kathircash.ccbp.tech",
     github:      null,    // NxtWave CCBP platform projects — source code not public
     hasCrudDemo: false,
@@ -203,7 +203,7 @@ export const projectsData = [
       "Responsive CSS layout with mobile-first approach",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/nxtwave-p5.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/nxtwave-p5.webp",  // add your screenshot here
     liveUrl:     "https://kathir5.ccbp.tech",
     github:      null,    // NxtWave CCBP platform projects — source code not public
     hasCrudDemo: false,
@@ -223,7 +223,7 @@ export const projectsData = [
       "Conditional rendering and component-level CSS modules",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/nxtwave-p4.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/nxtwave-p4.webp",  // add your screenshot here
     liveUrl:     "https://kathir4.ccbp.tech",
     github:      null,    // NxtWave CCBP platform projects — source code not public
     hasCrudDemo: false,
@@ -243,7 +243,7 @@ export const projectsData = [
       "Local state management using JavaScript variables",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/nxtwave-p3.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/nxtwave-p3.webp",  // add your screenshot here
     liveUrl:     "https://kathir3.ccbp.tech",
     github:      null,    // NxtWave CCBP platform projects — source code not public
     hasCrudDemo: false,
@@ -263,7 +263,7 @@ export const projectsData = [
       "Semantic HTML5 structure with accessible markup",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/nxtwave-p2.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/nxtwave-p2.webp",  // add your screenshot here
     liveUrl:     "https://kathir2.ccbp.tech",
     github:      null,    // NxtWave CCBP platform projects — source code not public
     hasCrudDemo: false,
@@ -283,7 +283,7 @@ export const projectsData = [
       "Foundation of web development skills applied",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/nxtwave-p1.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/nxtwave-p1.webp",  // add your screenshot here
     liveUrl:     "https://kathir1.ccbp.tech",
     github:      null,    // NxtWave CCBP platform projects — source code not public
     hasCrudDemo: false,
@@ -303,7 +303,7 @@ export const projectsData = [
       "Clean responsive layout with component isolation",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/nxtwave-feature.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/nxtwave-feature.webp",  // add your screenshot here
     liveUrl:     "https://feature.ccbp.tech",
     github:      null,    // NxtWave CCBP platform projects — source code not public
     hasCrudDemo: false,
@@ -323,7 +323,7 @@ export const projectsData = [
       "Regex-based email and phone number validation",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/nxtwave-validates.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/nxtwave-validates.webp",  // add your screenshot here
     liveUrl:     "https://validates.ccbp.tech",
     github:      null,    // NxtWave CCBP platform projects — source code not public
     hasCrudDemo: false,
@@ -343,7 +343,7 @@ export const projectsData = [
       "Mobile-optimised layout with fluid grid system",
     ],
     status:      "Live",
-    image:       "/assets/images/project imgs/tourvibes.png",  // add your screenshot here
+    image:       "/assets/images/project imgs/tourvibes.webp",  // add your screenshot here
     liveUrl:     "https://tourvibes.ccbp.tech",
     github:      null,    // NxtWave CCBP platform projects — source code not public
     hasCrudDemo: false,
@@ -366,7 +366,7 @@ export const projectsData = [
     "Client-side image download with preview retry for recreate flow",
   ],
   status:      "Live",
-  image:       "/assets/images/project imgs/thumblify.png",
+  image:       "/assets/images/project imgs/thumblify.webp",
   liveUrl:     null,       
   github:      "https://github.com/Kathitavan/thumblify.git",       // add your GitHub repo URL here
   hasCrudDemo: true,

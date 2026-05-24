@@ -43,7 +43,7 @@ const About = () => (
 
             <div className="about-image-container">
               <img
-                src="/assets/images/profile.png"
+                src="/assets/images/profile.webp"
                 alt="Kathiravan"
                 className="about-image-img"
                 onError={e => { e.target.style.display = 'none'; }}
