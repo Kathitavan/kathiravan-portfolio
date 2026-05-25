@@ -57,8 +57,6 @@ function App() {
 
     lenis.on('scroll', () => {
       ScrollTrigger.update();
-      // Bridge Lenis scroll to native window scroll so observers (Navbar/Dots) work
-      window.dispatchEvent(new Event('scroll'));
     });
 
     const rafCallback = (time) => lenis.raf(time * 1000);
